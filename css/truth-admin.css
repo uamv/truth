@@ -1,0 +1,12 @@
+#truth-authorization-failure {
+    margin-left: 2px;
+}
+
+#truth-authorization-success {
+    margin-top: 25px;
+    margin-left: 2px;
+}
+
+#truth-authorization-success p {
+    font-size: 14px;
+}
