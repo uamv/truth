@@ -102,6 +102,9 @@ In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
 
+= 2.1 =
+* Fix for fatal error. Files were not uploaded to repository. Breaking sites. Sorry!
+
 = 2.0 =
 * Added support for modal display of verses via bibles.org highlighter
 * Rebuilt codebase.
@@ -139,6 +142,9 @@ In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 * Initial Release
 
 == Upgrade Notice ==
+
+= 2.1 =
+* Fix for fatal error. Files were not uploaded to repository. Breaking sites. Sorry!
 
 = 2.0 =
 * Please check settings after this update which adds support for modal display of verses via bibles.org highlighter.
