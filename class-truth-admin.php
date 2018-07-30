@@ -145,7 +145,8 @@ if ( ! class_exists( 'Truth_Admin' ) ) {
                             endforeach; ?>
                         </optgroup>
                     <?php endforeach; ?>
-                </select></label>
+                </select></label><br />
+				<label>Overwrite Highlighter Targeting: <input name="truth_settings[biblesorg_highlighter][target_ids]" value="<?php echo ! isset( $this->options['biblesorg_highlighter']['target_ids'] ) ? '' : $this->options['biblesorg_highlighter']['target_ids']; ?>" style="width: 40%"></label><span id="description-biblesorg-target-ids" class="description">(comma-separated list of DOM element ids, overrides default search for verse references)
             </fieldset>
 
 			<fieldset id="truth-youversion-settings" <?php echo 'youversion' == $this->options['engine'] ? '' : 'style="display:none;"'; ?>>
@@ -176,3 +177,80 @@ if ( ! class_exists( 'Truth_Admin' ) ) {
     }
 
 }
+
+
+/**** DECLARE TYPEWHEEL NOTICES ****/
+require_once( 'typewheel-notice/class-typewheel-notice.php' );
+
+if ( apply_filters( 'truth_show_notices', true ) ) {
+	add_action( 'admin_notices', 'typewheel_truth_notices' );
+	/**
+	 * Displays a plugin notices
+	 *
+	 * @since    1.0
+	 */
+	function typewheel_truth_notices() {
+
+		$prefix = str_replace( '-', '_', dirname( plugin_basename(__FILE__) ) );
+
+			// Notice to show on plugin activation
+			$activation_notice = array(
+
+			);
+
+			// Define the notices
+			$typewheel_notices = array(
+				// $prefix . '-tutorial' => array(
+				// 	'trigger' => true,
+				// 	'time' => time() - 5,
+				// 	'dismiss' => array(),
+				// 	'type' => '',
+				// 	'content' => '<h2 style="margin:0;"><i class="dashicons dashicons-welcome-learn-more"></i> Glance That Tutorial</h2><br />Allow me to give you a brief run down on your <strong>Glance That</strong> options. You can hover over the <i class="dashicons dashicons-admin-settings"></i> settings icon at the top-right of <strong>At A Glance</strong> to reveal your controls. Clicking the <i class="dashicons dashicons-filter"></i> filter will allow you to add and remove items. You can also control <i class="dashicons dashicons-visibility"></i> visibility of available statuses for each item. Rearrange items by <i class="dashicons dashicons-move"></i> dragging them. Then, you can <i class="dashicons dashicons-migrate"></i> push your setup to other users. Let me know if you have any questions. Thanks! <a href="https://twitter.com/uamv/">@uamv</a>',
+				// 	// 'icon' => 'heart',
+				// 	'style' => array( 'background-image' => 'linear-gradient( to bottom right, rgb(215, 215, 215), rgb(231, 211, 186) )', 'border-left-color' => '#3F3F3F', 'max-width' => '700px', 'padding' => '.5em 2em' ),
+				// 	'location' => array( 'index.php' ),
+				// 	'capability' => GT_ADMIN_GLANCES,
+				// ),
+				// $prefix . '-review' => array(
+				// 	'trigger' => true,
+				// 	'time' => time() + 604800,
+				// 	'dismiss' => array( 'month' ),
+				// 	'type' => '',
+				// 	'content' => 'How are you liking the <strong>Glance That</strong> plugin? Help spread the word by <a href="https://wordpress.org/support/plugin/glance-that/reviews/?rate=5#new-post" target="_blank"><i class="dashicons dashicons-star-filled"></i> giving a review</a> or <a href="https://twitter.com/intent/tweet/?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fglance-that%2F" target="_blank"><i class="dashicons dashicons-twitter"></i> tweeting your support</a>. Thanks! <a href="https://twitter.com/uamv/">@uamv</a>',
+				// 	'icon' => 'share-alt',
+				// 	'style' => array( 'background-image' => 'linear-gradient( to bottom right, rgb(215, 215, 215), rgb(231, 211, 186) )', 'border-left-color' => '#3F3F3F' ),
+				// 	'location' => array( 'index.php' ),
+				// 	'capability' => GT_ADMIN_GLANCES,
+				// ),
+				$prefix . '-give' => array(
+					'trigger' => true,
+					'time' => time() + 2592000,
+					'dismiss' => array( 'month' ),
+					'type' => '',
+					'content' => 'Is the <strong>Truth</strong> plugin working well for you? Please consider giving <a href="https://wordpress.org/support/plugin/truth/reviews/?rate=5#new-post" target="_blank"><i class="dashicons dashicons-star-filled"></i> a review</a>, <a href="https://twitter.com/intent/tweet/?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Ftruth%2F" target="_blank"><i class="dashicons dashicons-twitter"></i> a tweet</a> or <a href="https://typewheel.xyz/give/?ref=Truth" target="_blank"><i class="dashicons dashicons-heart"></i> a donation</a> to encourage further development. Thanks! <a href="https://twitter.com/uamv/">@uamv</a>',
+					'icon' => 'heart',
+					'style' => array( 'background-image' => 'linear-gradient( to bottom right, rgb(215, 215, 215), rgb(231, 211, 186) )', 'border-left-color' => '#3F3F3F' ),
+					'location' => array( 'options-reading.php' ),
+					'capability' => 'manage_options',
+				),
+			);
+
+			// get the notice class
+			new Typewheel_Notice( $prefix, $typewheel_notices, $activation_notice );
+
+	} // end display_plugin_notices
+}
+
+/**
+ * Deletes activation marker so it can be displayed when the plugin is reinstalled or reactivated
+ *
+ * @since    1.0
+ */
+function typewheel_truth_remove_activation_marker() {
+
+	$prefix = str_replace( '-', '_', dirname( plugin_basename(__FILE__) ) );
+
+	delete_option( $prefix . '_activated' );
+
+}
+register_deactivation_hook( dirname(__FILE__) . '/truth.php', 'typewheel_truth_remove_activation_marker' );

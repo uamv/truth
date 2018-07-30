@@ -75,6 +75,7 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 			if ( 'biblesorg_highlighter' == $this->options['engine'] ) {
 
 				$versionInfo = $this->get_bible_version();
+				$targetIDs = explode( ',', $this->options['biblesorg_highlighter']['target_ids'] );
 
 				 ?>
 
@@ -90,8 +91,16 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 				  (w.attachEvent) ? w.attachEvent('on' + e, l) : w.addEventListener(e, l, false);
 				})(window, document, 'script', 'load', 'bw-highlighter-src');
 				</script>
-
-			<?php }
+				<?php if ( isset( $this->options['biblesorg_highlighter']['target_ids'] ) && '' != $this->options['biblesorg_highlighter']['target_ids'] ) { ?>
+					<script>
+						_bhparse.push(
+							<?php foreach ($targetIDs as $targetID) {
+								echo "'" . $targetID . "',";
+							} ?>
+						);
+					</script>
+				<?php }
+			}
 
         }
 

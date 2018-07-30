@@ -1,9 +1,9 @@
 === Truth ===
 Contributors: UaMV
-Donate link: http://vandercar.net/wp
+Donate link: https://typewheel.xyz/give/
 Tags: bible, scripture, truth, verse, version, youversion, passage, christian
 Requires at least: 3.1
-Tested up to: 4.6
+Tested up to: 4.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -102,6 +102,10 @@ In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
 
+= 2.2 =
+* Added Bible Highlighter option to target specific DOM ids for instances when reference is not identified.
+* Added delayed review prompt on Reading Settings screen.
+
 = 2.1 =
 * Fix for fatal error. Files were not uploaded to repository. Breaking sites. Sorry!
 
@@ -142,6 +146,10 @@ In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 * Initial Release
 
 == Upgrade Notice ==
+
+= 2.2 =
+* Adds Bible Highlighter option to target specific DOM ids for instances when reference is not identified.
+* Adds delayed review prompt on Reading Settings screen.
 
 = 2.1 =
 * Fix for fatal error. Files were not uploaded to repository. Breaking sites. Sorry!
