@@ -4,7 +4,7 @@ Donate link: https://typewheel.xyz/give/
 Tags: bible, scripture, truth, verse, version, youversion, passage, christian
 Requires at least: 3.1
 Tested up to: 5.3
-Stable tag: trunk
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,6 +101,9 @@ Yes. Upload `truth.php` to `/wp-content/mu-plugins/` (auto-enables use on every 
 In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
+
+= 2.3 =
+* URL fix for YouVersion links
 
 = 2.2 =
 * Added Bible Highlighter option to target specific DOM ids for instances when reference is not identified.
