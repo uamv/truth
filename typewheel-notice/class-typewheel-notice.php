@@ -20,55 +20,55 @@ if ( ! function_exists( 'typewheel_notices_add_stylesheets_and_javascript' ) ) {
 
 if ( ! class_exists( 'Typewheel_Notice' ) ) {
 	/**
-	 * Typewheel Notice Class
-	 *
-	 * Adds Typewheel notices to the WP admin
-	 *
-	 * @package Typewheel Notice
-	 * @author  UaMV
-	 */
+	* Typewheel Notice Class
+	*
+	* Adds Typewheel notices to the WP admin
+	*
+	* @package Typewheel Notice
+	* @author  UaMV
+	*/
 	class Typewheel_Notice {
 
 		/*---------------------------------------------------------------------------------*
-		 * Attributes
-		 *---------------------------------------------------------------------------------*/
+		* Attributes
+		*---------------------------------------------------------------------------------*/
 
 		/**
-		 * Notices.
-		 *
-		 * @since    1.0
-		 *
-		 * @var      array
-		 */
+		* Notices.
+		*
+		* @since    1.0
+		*
+		* @var      array
+		*/
 		public $notices;
 
 		/**
-		 * User.
-		 *
-		 * @since    1.0
-		 *
-		 * @var      array
-		 */
+		* User.
+		*
+		* @since    1.0
+		*
+		* @var      array
+		*/
 		public $user;
 
 		/**
-		 * Notices.
-		 *
-		 * @since    1.0
-		 *
-		 * @var      array
-		 */
+		* Notices.
+		*
+		* @since    1.0
+		*
+		* @var      array
+		*/
 		public $prefix;
 
 		/*---------------------------------------------------------------------------------*
-		 * Constructor
-		 *---------------------------------------------------------------------------------*/
+		* Constructor
+		*---------------------------------------------------------------------------------*/
 
 		/**
-		 * Initialize the plugin by setting localization, filters, and administration functions.
-		 *
-		 * @since     1.0
-		 */
+		* Initialize the plugin by setting localization, filters, and administration functions.
+		*
+		* @since     1.0
+		*/
 		public function __construct( $prefix, $notices = array(), $activation = array() ) {
 
 			$this->prefix = $prefix;
@@ -98,24 +98,24 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 		} // end constructor
 
 		/*---------------------------------------------------------------------------------*
-		 * Public Functions
-		 *---------------------------------------------------------------------------------*/
+		* Public Functions
+		*---------------------------------------------------------------------------------*/
 
-		 /**
- 		 * Check user and set/get notices
- 		 *
- 		 * @since    1.0
- 		 */
- 		public function process_user() {
+		/**
+		* Check user and set/get notices
+		*
+		* @since    1.0
+		*/
+		public function process_user() {
 
- 			$current_user = wp_get_current_user();
+			$current_user = wp_get_current_user();
 
 			$this->user['ID'] = $current_user->ID;
 
- 			// Get the notice options from the user
- 			$this->user['notices'] = get_user_meta( $this->user['ID'], $this->prefix . '_typewheel_notices', true );
+			// Get the notice options from the user
+			$this->user['notices'] = get_user_meta( $this->user['ID'], $this->prefix . '_typewheel_notices', true );
 
- 			// If not yet set, then set the usermeta as an array
+			// If not yet set, then set the usermeta as an array
 			if ( '' == $this->user['notices'] ) {
 				add_user_meta( $this->user['ID'], $this->prefix . '_typewheel_notices', array(), true );
 				$this->user['notices'] = array();
@@ -132,30 +132,30 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 
 			}
 
- 			// Create specific notices if they do not exist, otherwise set to current notice state
- 			foreach ( $this->notices as $notice => $args ) {
+			// Create specific notices if they do not exist, otherwise set to current notice state
+			foreach ( $this->notices as $notice => $args ) {
 
- 				if ( ! isset( $this->user['notices'][ $notice ] ) ) {
+				if ( ! isset( $this->user['notices'][ $notice ] ) ) {
 
- 					$this->user['notices'][ $notice ] = array(
- 						'trigger' => $args['trigger'],
- 						'time'    => $args['time'],
- 						);
+					$this->user['notices'][ $notice ] = array(
+						'trigger' => $args['trigger'],
+						'time'    => $args['time'],
+					);
 
- 				}
+				}
 
- 			}
+			}
 
- 			// Update the user meta
- 			update_user_meta( $this->user['ID'], $this->prefix . '_typewheel_notices', $this->user['notices'] );
+			// Update the user meta
+			update_user_meta( $this->user['ID'], $this->prefix . '_typewheel_notices', $this->user['notices'] );
 
 		}
 
 		/**
-		 * Displays active plugin notices.
-		 *
-		 * @since    1.0
-		 */
+		* Displays active plugin notices.
+		*
+		* @since    1.0
+		*/
 		public function display() {
 
 			global $pagenow;
@@ -177,11 +177,11 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 
 					// Assemble the notice
 					$html .= '<div id="' . $notice . '-typewheel-notice" class="notice notice-' . $args['type'] . ' typewheel-notice' . '" style="' . esc_attr( $this->styles( $args['style'] ) ) . '">';
-						$html .= '<p>';
-							$html .= $this->get_dismissals( $notice, $args['dismiss'] );
-							$html .= isset( $args['icon'] ) && '' != $args['icon'] ? '<i class="dashicons dashicons-' . $args['icon'] . ' featured-icon"></i>' : '';
-							$html .= apply_filters( $notice . '_typewheel_notice_content', $args['content'], $notice );
-						$html .= '</p>';
+					$html .= '<p>';
+					$html .= $this->get_dismissals( $notice, $args['dismiss'] );
+					$html .= isset( $args['icon'] ) && '' != $args['icon'] ? '<i class="dashicons dashicons-' . $args['icon'] . ' featured-icon"></i>' : '';
+					$html .= apply_filters( $notice . '_typewheel_notice_content', $args['content'], $notice );
+					$html .= '</p>';
 					$html .= '</div>';
 
 				}
@@ -193,10 +193,10 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 		} // end display_notices
 
 		/**
-		 * Displays activation notice.
-		 *
-		 * @since    1.0
-		 */
+		* Displays activation notice.
+		*
+		* @since    1.0
+		*/
 		public function display_activation() {
 
 			global $pagenow;
@@ -209,10 +209,10 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 
 				// Assemble notice
 				$html = '<div id="activation-typewheel-notice" class="notice notice-info typewheel-notice' . '" style="' . esc_attr( $this->styles( $this->activation['style'] ) ) . '">';
-					$html .= '<p>';
-						$html .= isset( $this->activation['icon'] ) && '' != $this->activation['icon'] ? '<i class="dashicons dashicons-' . $this->activation['icon'] . ' featured-icon"></i>' : '';
-						$html .= apply_filters( 'activation_typewheel_notice_content', $this->activation['content'] );
-					$html .= '</p>';
+				$html .= '<p>';
+				$html .= isset( $this->activation['icon'] ) && '' != $this->activation['icon'] ? '<i class="dashicons dashicons-' . $this->activation['icon'] . ' featured-icon"></i>' : '';
+				$html .= apply_filters( 'activation_typewheel_notice_content', $this->activation['content'] );
+				$html .= '</p>';
 				$html .= '</div>';
 
 				echo $html;
@@ -222,10 +222,10 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 		} // end display_activation
 
 		/**
-		 * Assemble the styles from array or string
-		 *
-		 * @since    1.0
-		 */
+		* Assemble the styles from array or string
+		*
+		* @since    1.0
+		*/
 		private function styles( $styles ) {
 
 			if ( is_array( $styles ) ) {
@@ -249,10 +249,10 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 		}
 
 		/**
-		 * Assemble and return any assigned dismissal notices
-		 *
-		 * @since    1.0
-		 */
+		* Assemble and return any assigned dismissal notices
+		*
+		* @since    1.0
+		*/
 		public function get_dismissals( $notice, $dismiss ) {
 
 			$html = '<span id="' . $notice . '-typewheel-notice-dismissals" style="float:right;">';
@@ -292,30 +292,30 @@ if ( ! function_exists( 'typewheel_notices_process' ) ) {
 
 		switch ( $duration ) {
 			case 'week':
-				$user[ $notice ]['time'] = time() + 604800;
-				break;
+			$user[ $notice ]['time'] = time() + 604800;
+			break;
 			case 'month':
-				$user[ $notice ]['time'] = time() + 2592000;
-				break;
+			$user[ $notice ]['time'] = time() + 2592000;
+			break;
 			case 'forever':
 				$user[ $notice ]['trigger'] = FALSE;
 				break;
-			case 'undismiss':
+				case 'undismiss':
 				foreach ( $user as $name => $args ) {
 					$user[ $name ]['trigger'] = TRUE;
 					$user[ $name ]['time'] = time() - 5;
 				}
 				break;
-			default:
+				default:
 				break;
+			}
+
+			// Update the user meta
+			update_user_meta( $userid, $plugin . '_typewheel_notices', $user );
+
+			$response = array( 'success' => true, 'notice' => $notice, 'plugin' => $plugin );
+
+			wp_send_json( $response );
+
 		}
-
-		// Update the user meta
-		update_user_meta( $userid, $plugin . '_typewheel_notices', $user );
-
-		$response = array( 'success' => true, 'notice' => $notice, 'plugin' => $plugin );
-
-		wp_send_json( $response );
-
 	}
-}

@@ -1,24 +1,24 @@
 <?php
 /**
- * The public Truth class
- */
+* The public Truth class
+*/
 if ( ! class_exists( 'Truth_Notice' ) ) {
 
 	/**
-	 * lets get started
-	 */
+	* lets get started
+	*/
 	class Truth_Notice {
 
 		/**
-		 * Static property to hold our singleton instance
-		 * @var $instance
-		 */
+		* Static property to hold our singleton instance
+		* @var $instance
+		*/
 		public $notice = array();
 
 		/**
-		 * this is our constructor.
-		 * there are many like it, but this one is mine
-		 */
+		* this is our constructor.
+		* there are many like it, but this one is mine
+		*/
 		public function __construct( $notice ) {
 
 			$this->notice = $notice;
@@ -47,10 +47,10 @@ if ( ! class_exists( 'Truth_Notice' ) ) {
 		}
 
 		/**
-		 * AJAX action target that authorizes plugin
-		 *
-		 * @since    0.0.1
-		 */
+		* AJAX action target that authorizes plugin
+		*
+		* @since    0.0.1
+		*/
 		public function authorize_truth() {
 
 			// Check the nonce
@@ -60,34 +60,34 @@ if ( ! class_exists( 'Truth_Notice' ) ) {
 
 				$authorize = add_option( 'truth_authorization', true );
 
-					if ( $authorize ) {
+				if ( $authorize ) {
 
-						$args = array(
-							'notice'  => 'truth-authorization-success',
-							'class'   => 'updated fade',
-							'message' => '<p>Thank you! Visit <code><a href="' . admin_url( 'options-reading.php#truth-engine' ) . '" data-security="' . wp_create_nonce( 'authorized-truth' ) . '">Settings > Reading</a></code> to customize <strong>(and save)</strong> your plugin settings.</p>',
-							'echo'    => false
-						);
+					$args = array(
+						'notice'  => 'truth-authorization-success',
+						'class'   => 'updated fade',
+						'message' => '<p>Thank you! Visit <code><a href="' . admin_url( 'options-reading.php#truth-engine' ) . '" data-security="' . wp_create_nonce( 'authorized-truth' ) . '">Settings > Reading</a></code> to customize <strong>(and save)</strong> your plugin settings.</p>',
+						'echo'    => false
+					);
 
-						$success = new Truth_Notice( $args );
+					$success = new Truth_Notice( $args );
 
-						$response['notice'] = $success->get();
-						$response['success'] = true;
+					$response['notice'] = $success->get();
+					$response['success'] = true;
 
-					} else {
+				} else {
 
-						$args = array(
-							'notice'  => 'truth-authorization-failure',
-							'class'   => 'error',
-							'message' => 'Failed to authorize the Truth plugin. Please try again.',
-							'echo'    => false
-						);
+					$args = array(
+						'notice'  => 'truth-authorization-failure',
+						'class'   => 'error',
+						'message' => 'Failed to authorize the Truth plugin. Please try again.',
+						'echo'    => false
+					);
 
-						$failure = new Truth_Notice( $args );
-						$response['notice'] = $failure->get();
-						$response['success'] = false;
+					$failure = new Truth_Notice( $args );
+					$response['notice'] = $failure->get();
+					$response['success'] = false;
 
-					}
+				}
 
 			} else {
 
@@ -108,6 +108,6 @@ if ( ! class_exists( 'Truth_Notice' ) ) {
 
 		}
 
-    }
+	}
 
 }

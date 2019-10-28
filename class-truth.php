@@ -1,24 +1,24 @@
 <?php
 /**
- * The core Truth class
- */
+* The core Truth class
+*/
 if ( ! class_exists( 'Truth' ) ) {
 
 	/**
-	 * lets get started
-	 */
+	* lets get started
+	*/
 	class Truth {
 
 		/**
-		 * Static property to hold our singleton instance
-		 * @var $instance
-		 */
+		* Static property to hold our singleton instance
+		* @var $instance
+		*/
 		static $instance = false;
 
 		/**
-		 * this is our constructor.
-		 * there are many like it, but this one is mine
-		 */
+		* this is our constructor.
+		* there are many like it, but this one is mine
+		*/
 		private function __construct() {
 
 			if ( is_admin() ) {
@@ -32,11 +32,11 @@ if ( ! class_exists( 'Truth' ) ) {
 		}
 
 		/**
-		 * If an instance exists, this returns it.  If not, it creates one and
-		 * returns it.
-		 *
-		 * @return $instance
-		 */
+		* If an instance exists, this returns it.  If not, it creates one and
+		* returns it.
+		*
+		* @return $instance
+		*/
 		public static function get_instance() {
 			if ( ! self::$instance ) {
 				self::$instance = new self;
@@ -46,9 +46,9 @@ if ( ! class_exists( 'Truth' ) ) {
 		}
 
 		/**
-		 * Return supported version for Truth plugin
-		 * @return [type] [description]
-		 */
+		* Return supported version for Truth plugin
+		* @return [type] [description]
+		*/
 		public function get_sources() {
 
 			$sources = array(
@@ -78,13 +78,13 @@ if ( ! class_exists( 'Truth' ) ) {
 						'spa' => array(
 							'DHH' => array( 'name' => 'Biblia Dios Habla Hoy (sin notas ni ayudas)', 'abbr' => 'DHH' ),
 							'RVR1960' => array( 'name' => 'Biblia Reina Valera 1960', 'abbr' => 'RVR1960' ),
-						),				
+						),
 					)
 				),
 				'youversion' => array(
-					'URLSingleVerse'  => 'http://bible.us/[id]/[book].[chapter].[verse].[version]',
-					'URLVerseRange'   => 'http://bible.us/[id]/[book].[chapter].[verse]-[endverse].[version]',
-					'URLSingleChapter'=> 'http://bible.us/[id]/[book].[chapter].[version]',
+					'URLSingleVerse'  => 'https://my.bible.com/[id]/[book].[chapter].[verse]',
+					'URLVerseRange'   => 'https://my.bible.com/[id]/[book].[chapter].[verse]-[endverse]',
+					'URLSingleChapter'=> 'https://my.bible.com/[id]/[book].[chapter]',
 					'URLChapterRange' => '',
 					'bookFind'        => array( 'song_of_solomon', ' ' ),
 					'bookReplace'     => array( 'song', ''),
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Truth' ) ) {
 							'130' => array( 'name' => 'Orthodox Jewish Bible', 'abbr' => 'ojb', 'id' => '130' ),
 							'314' => array( 'name' => 'Tree of Life Bible', 'abbr' => 'tlv', 'id' => '314' ),
 							'206' => array( 'name' => 'World English Bible', 'abbr' => 'web', 'id' => '206' ),
-							),
+						),
 						'Español' => array(
 							'28' => array( 'name' => 'La Palabra', 'abbr' => 'blph', 'id' => '28'),
 							'89' => array( 'name' => 'La Bilia de las Americas', 'abbr' => 'lbla', 'id' => '89' ),
@@ -130,6 +130,6 @@ if ( ! class_exists( 'Truth' ) ) {
 
 		}
 
-    }
+	}
 
 }
