@@ -49,36 +49,25 @@ if ( ! class_exists( 'Truth' ) ) {
 		* Return supported version for Truth plugin
 		* @return [type] [description]
 		*/
-		public function get_sources() {
+		public static function get_sources() {
 
 			$sources = array(
 				'biblesorg_highlighter' => array(
 					'versions' => array(
 						'eng' => array(
-							'AMP' => array( 'name' => 'Amplified Bible', 'abbr' => 'AMP' ),
-							'ASV' => array( 'name' => 'The Holy Bible: American Standard Version', 'abbr' => 'ASV' ),
-							'CEV' => array( 'name' => 'Contemporary English Version (US Version)', 'abbr' => 'CEV' ),
-							'CEVD' => array( 'name' => 'Contemporary English Version (US Version)', 'abbr' => 'CEVD' ),
-							'CEVUS06' => array( 'name' => 'Contemporary English Version', 'abbr' => 'CEVUS06' ),
-							'ESV' => array( 'name' => 'English Standard Version', 'abbr' => 'ESV' ),
-							'GNTD' => array( 'name' => 'Good News Translation (US Version)', 'abbr' => 'GNTD' ),
-							'KJVA' => array( 'name' => 'King James Version with Apocrypha, American Edition', 'abbr' => 'KJVA' ),
-							'MSG' => array( 'name' => 'The Message', 'abbr' => 'MSG' ),
-							'NABRE' => array( 'name' => 'New American Bible, Revised Edition', 'abbr' => 'NABRE' ),
-							'NASB' => array( 'name' => 'New American Standard Bible', 'abbr' => 'NASB' ),
-							'NIV' => array( 'name' => 'New International Version', 'abbr' => 'NIV' ),
-							'NLT' => array( 'name' => 'New Living Translation', 'abbr' => 'NLT' ),
-							'NRSV' => array( 'name' => 'New Revised Standard Version', 'abbr' => 'NRSV' ),
-							'RSV' => array( 'name' => 'Revised Standard Version', 'abbr' => 'RSV' ),
-							'RV' => array( 'name' => 'Revised Version 1885', 'abbr' => 'RV' ),
-							'WEB' => array( 'name' => 'World English Bible', 'abbr' => 'WEB' ),
-							'WMB' => array( 'name' => 'World Messianic Bible', 'abbr' => 'WMB' ),
-							'WMBBE' => array( 'name' => 'World Messianic Bible British Edition', 'abbr' => 'WMBBE' ),
-						),
-						'spa' => array(
-							'DHH' => array( 'name' => 'Biblia Dios Habla Hoy (sin notas ni ayudas)', 'abbr' => 'DHH' ),
-							'RVR1960' => array( 'name' => 'Biblia Reina Valera 1960', 'abbr' => 'RVR1960' ),
-						),
+							'AMP' => array( 'name' => 'Amplified Bible', 'abbr' => 'AMP', 'id' => 'a81b73293d3080c9-01' ),
+							'CEV' => array( 'name' => 'Contemporary English Version', 'abbr' => 'CEV', 'id' => '555fef9a6cb31151-01' ),
+							'CEV2012' => array( 'name' => 'Contemporary English Version (Anglicised) 2012', 'abbr' => 'CEV', 'id' => '108aa0495c0f45fb-01' ),
+							'ESV' => array( 'name' => 'English Standard Version', 'abbr' => 'ESV', 'id' => 'f421fe261da7624f-01' ),
+							'GNTD' => array( 'name' => 'Good News Translation (US Version)', 'abbr' => 'GNTD', 'id' => '61fd76eafa1577c2-01' ),
+							'KJV' => array( 'name' => 'King James Version, American Edition', 'abbr' => 'KJV', 'id' => 'a6aee10bb058511c-02' ),
+							'KJVA' => array( 'name' => 'King James Version with Apocrypha, American Edition', 'abbr' => 'KJVA', 'id' => 'a6aee10bb058511c-01' ),
+							'NASB' => array( 'name' => 'New American Standard Bible', 'abbr' => 'NASB', 'id' => 'b8ee27bcd1cae43a-01' ),
+							'NIV' => array( 'name' => 'New International Version', 'abbr' => 'NIV', 'id' => '78a9f6124f344018-01' ),
+							'NRSV' => array( 'name' => 'New Revised Standard Version', 'abbr' => 'NRSV', 'id' => '1fd99b0d5841e19b-02' ),
+                     'GNB' => array( 'name' => 'Good News Bible (Anglicised) 1994', 'abbr' => 'GNB', 'id' => 'de08848bef5aa286-02' ),
+                     'GNBC' => array( 'name' => 'Good News Bible (Anglicised) Catholic Edition 1994', 'abbr' => 'GNB', 'id' => 'de08848bef5aa286-03' ),
+						)
 					)
 				),
 				'youversion' => array(

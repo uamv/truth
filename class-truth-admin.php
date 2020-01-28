@@ -28,6 +28,8 @@ if ( ! class_exists( 'Truth_Admin' ) ) {
 		private function __construct() {
 
 			$this->options = get_option( 'truth_settings' );
+         $this->options['link_in_new_tab'] = isset( $this->options['link_in_new_tab'] ) ? $this->options['link_in_new_tab'] : 0;
+         $this->options['disable_auto_links'] = isset( $this->options['disable_auto_links'] ) ? $this->options['disable_auto_links'] : 0;
 
 			register_activation_hook( TRUTH_FILE, array( $this, 'initialize_plugin' ) );
 
@@ -145,7 +147,7 @@ if ( ! class_exists( 'Truth_Admin' ) ) {
 						endforeach; ?>
 					</optgroup>
 				<?php endforeach; ?>
-			</select></label><br />
+			</select></label>
 			<label>Overwrite Highlighter Targeting: <input name="truth_settings[biblesorg_highlighter][target_ids]" value="<?php echo ! isset( $this->options['biblesorg_highlighter']['target_ids'] ) ? '' : $this->options['biblesorg_highlighter']['target_ids']; ?>" style="width: 40%"></label><span id="description-biblesorg-target-ids" class="description">(comma-separated list of DOM element ids, overrides default search for verse references)
 			</fieldset>
 

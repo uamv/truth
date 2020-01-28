@@ -35,9 +35,9 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 
 			$this->options = get_option( 'truth_settings' );
 
-			add_action( 'wp_head', array( $this, 'insert_scripts' ) );
+			add_action( 'wp_footer', array( $this, 'insert_scripts' ) );
 
-			if ( get_option('truth_authorization') && ! $this->options['disable_auto_links'] && 'youversion' == $this->options['engine'] ) {
+			if ( get_option('truth_authorization') && ( ! isset( $this->options['disable_auto_links'] ) || ! $this->options['disable_auto_links'] ) && 'youversion' == $this->options['engine'] ) {
 
 				add_action( 'init', array( $this, 'create_index' ) );
 
@@ -74,33 +74,18 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 
 			if ( 'biblesorg_highlighter' == $this->options['engine'] ) {
 
-				$versionInfo = $this->get_bible_version();
-				$targetIDs = explode( ',', $this->options['biblesorg_highlighter']['target_ids'] );
+				$versionInfo = $this->get_bible_version(); ?>
 
-				?>
+            <script src="https://bibles.org/static/widget/v2/widget.js"></script>
+            <script>
+                GLOBALBIBLE.init({
+                    url: "https://bibles.org",
+                    bible: "<?php echo $versionInfo['id']; ?>",
+                    autolink: <?php echo ( isset( $this->options['biblesorg_highlighter']['target_ids'] ) && '' != $this->options['biblesorg_highlighter']['target_ids'] ) ? '"' . $this->options['biblesorg_highlighter']['target_ids'] . '"' : '"body"'; ?>,
+                });
+            </script>
 
-				<script id="bw-highlighter-config" data-version="<?php echo $versionInfo['abbr']; ?>">
-					(function(w, d, s, e, id) {
-						w._bhparse = w._bhparse || [];
-						function l() {
-							if (d.getElementById(id)) return;
-							var n = d.createElement(s), x = d.getElementsByTagName(s)[0];
-							n.id = id; n.async = true; n.src = '//bibles.org/linker/js/client.js';
-							x.parentNode.insertBefore(n, x);
-						}
-						(w.attachEvent) ? w.attachEvent('on' + e, l) : w.addEventListener(e, l, false);
-					})(window, document, 'script', 'load', 'bw-highlighter-src');
-				</script>
-				<?php if ( isset( $this->options['biblesorg_highlighter']['target_ids'] ) && '' != $this->options['biblesorg_highlighter']['target_ids'] ) { ?>
-				<script>
-					_bhparse.push(
-						<?php foreach ($targetIDs as $targetID) {
-							echo "'" . $targetID . "',";
-						} ?>
-					);
-				</script>
-				<?php }
-			}
+			<?php }
 
 		}
 

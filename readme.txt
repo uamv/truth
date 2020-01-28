@@ -4,7 +4,7 @@ Donate link: https://typewheel.xyz/give/
 Tags: bible, scripture, truth, verse, version, youversion, passage, christian
 Requires at least: 3.1
 Tested up to: 5.3
-Stable tag: 2.3
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,27 +15,20 @@ Automatically links to Bible verses throughout your site.
 The Truth plugin will scan the content of your posts, pages, comments, and widgets for references to Bible verses and can generate two types of links from these references.
 
 = bibles.org =
-Truth utilizes the [highlighter tool](http://tools.bibles.org/highlighter.html "bibles.org Highlighter Tool") from [bibles.org](http://bibles.org "BibleSearch") to generates links that, when clicked, will display a modal containing the verse that has been referenced. The following Bible versions are currently supported:
+Truth utilizes the [Global Bible Widget](https://bibles.org/widget "bibles.org Global Bible Widget") from [The Global Bible Project](https://global.bible "Global.Bible") to generate links that, when clicked, will display a modal containing the verse that has been referenced. The following Bible versions are currently supported:
 
 * Amplified Bible (AMP)
-* The Holy Bible: American Standard Version (ASV)
-* Contemporary English Version (US Version) (CEV)
-* Contemporary English Version (US Version) (CEVD)
-* Contemporary English Version (CEVUS06)
+* Contemporary English Version (CEV)
+* Contemporary English Version (Anglicised) 2012 (CEVD)
 * English Standard Version (ESV)
 * Good News Translation (US Version) (GNTD)
+* King James Version, American Edition (KJVA)
 * King James Version with Apocrypha, American Edition (KJVA)
-* The Message (MSG)
-* New American Bible, Revised Edition (NABRE)
 * New American Standard Bible (NASB)
 * New International Version (NIV)
-* New Living Translation (NLT)
 * New Revised Standard Version (NRSV)
-* Revised Standard Version (RSV)
-* Revised Version 1885 (RV)
-* World English Bible (WEB)
-* World Messianic Bible (WMB)
-* World Messianic Bible British Edition (WMBBE)
+* Good News Bible (Anglicised) 1994 (GNB)
+* Good News Bible (Anglicised) Catholic Edition 1994 (GNB)
 
 = YouVersion =
 Truth can also generate links to [YouVersion](http://bible.com "YouVersion"). When using YouVersion, a shortcode allows override of the default Bible version. There is also an option to disable auto-generation of links and use only the shortcode. The following Bible versions are currently supported:
@@ -79,7 +72,7 @@ View an implementation of the plugin [here](http://wmpl.org/articles "WMPL Artic
 
 == Screenshots ==
 
-1. Bibles.org Highlighter Settings
+1. Global.Bible Widget Settings
 1. YouVersion Settings
 
 == Frequently Asked Questions ==
@@ -101,6 +94,10 @@ Yes. Upload `truth.php` to `/wp-content/mu-plugins/` (auto-enables use on every 
 In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
+
+= 2.4 =
+* Necessary migration form bibles.org Highlighter to Global.Bible Widget
+* Removed unsupported version in Global.Bible
 
 = 2.3 =
 * URL fix for YouVersion links
@@ -149,6 +146,9 @@ In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 * Initial Release
 
 == Upgrade Notice ==
+
+= 2.4 =
+* We've made a necessary migration form bibles.org Highlighter to Global.Bible Widget. If previously using bibles.org modals, please check and save your settings after this update
 
 = 2.2 =
 * Adds Bible Highlighter option to target specific DOM ids for instances when reference is not identified.
