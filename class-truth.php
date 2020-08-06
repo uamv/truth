@@ -101,6 +101,7 @@ if ( ! class_exists( 'Truth' ) ) {
 							'111' => array( 'name' => 'New International Version', 'abbr' => 'niv', 'id' => '111' ),
 							'114' => array( 'name' => 'New King James Version', 'abbr' => 'nkjv', 'id' => '114' ),
 							'116' => array( 'name' => 'New Living Translation', 'abbr' => 'nlt', 'id' => '116' ),
+							'2016' => array( 'name' => 'New Revised Standard Version', 'abbr' => 'nrsv', 'id' => '2016' ),
 							'130' => array( 'name' => 'Orthodox Jewish Bible', 'abbr' => 'ojb', 'id' => '130' ),
 							'314' => array( 'name' => 'Tree of Life Bible', 'abbr' => 'tlv', 'id' => '314' ),
 							'206' => array( 'name' => 'World English Bible', 'abbr' => 'web', 'id' => '206' ),
