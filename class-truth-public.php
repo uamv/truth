@@ -239,7 +239,7 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 			} else {
 				$result = $source['URLSingleChapter'];
 			}
-d($bibleVersionID);
+
 			$versionInfo = $this->get_bible_version( $bibleVersionID );
 
 			return str_replace( array( '[book]', '[chapter]', '[verse]', '[endchapter]', '[endverse]', '[version]', '[id]' ), array( $bookName, $reference['chapterNumber'], $reference['verseNumber'], $reference['endChapterNumber'], $reference['endVerseNumber'], $versionInfo['abbr'], $versionInfo['id'] ), $result );
