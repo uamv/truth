@@ -3,8 +3,8 @@ Contributors: UaMV
 Donate link: https://typewheel.xyz/give/
 Tags: bible, scripture, truth, verse, version, youversion, passage, christian
 Requires at least: 3.1
-Tested up to: 5.3
-Stable tag: 2.4
+Tested up to: 5.5
+Stable tag: 2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,7 @@ Truth can also generate links to [YouVersion](http://bible.com "YouVersion"). Wh
 * New International Version (NIV)
 * New King James Version (NKJV)
 * New Living Translation (NLT)
+* New Revised Standard Version (NRSV)
 * Orthodox Jewish Bible (OJB)
 * Tree of Life Bible (TLV)
 * World English Bible (WEB)
@@ -94,6 +95,10 @@ Yes. Upload `truth.php` to `/wp-content/mu-plugins/` (auto-enables use on every 
 In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
+
+= 2.5 =
+* Fix for linking non-default Bible version in shortcode
+* Added NRSV to available YouVersion translations
 
 = 2.4 =
 * Necessary migration form bibles.org Highlighter to Global.Bible Widget

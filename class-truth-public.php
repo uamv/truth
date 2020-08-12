@@ -102,7 +102,7 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 
 				$truth_url = $this->get_verse_url( $reference, $bibleVersion['id'] );
 
-				if ( '' != $version && strpos( $truth_url, strtolower( $version ) ) > 0 ) {
+				if ( '' != $version && strpos( $truth_url, "/{$bibleVersion['id']}/" ) > 0 ) {
 					switch ( $this->options['append_version'] ) {
 						case 'none':
 						break;
@@ -211,7 +211,7 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 			$site = $this->options['engine'];
 			$versions = $sources[ $site ]['versions'];
 
-			$bibleVersionID = '' == $bibleVersionID ? $this->options[ $site ]['bible_version'] : $bibleVersionID;
+			// $versionID = '' == $versionID ? $this->options[ $site ]['bible_version'] : $versionID;
 
 			foreach ( $versions as $languageGroup => $languageVersions ) {
 				foreach ( $languageVersions as $versionID => $versionInfo ) {
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 			} else {
 				$result = $source['URLSingleChapter'];
 			}
-
+d($bibleVersionID);
 			$versionInfo = $this->get_bible_version( $bibleVersionID );
 
 			return str_replace( array( '[book]', '[chapter]', '[verse]', '[endchapter]', '[endverse]', '[version]', '[id]' ), array( $bookName, $reference['chapterNumber'], $reference['verseNumber'], $reference['endChapterNumber'], $reference['endVerseNumber'], $versionInfo['abbr'], $versionInfo['id'] ), $result );
