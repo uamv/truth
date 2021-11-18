@@ -3,8 +3,8 @@ Contributors: UaMV
 Donate link: https://typewheel.xyz/give/
 Tags: bible, scripture, truth, verse, version, youversion, passage, christian
 Requires at least: 3.1
-Tested up to: 5.5
-Stable tag: 2.6
+Tested up to: 5.9
+Stable tag: 2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,7 @@ Truth can also generate links to [YouVersion](http://bible.com "YouVersion"). Wh
 
 * Amplified Bible (AMP)
 * American Standard Version (ASV)
+* Berean Study Bible (BSB)
 * Common English Bible (CEB)
 * Contemporary English Version (CEVUS06)
 * Catholic Public Domain Version (CPDV)
@@ -95,6 +96,9 @@ Yes. Upload `truth.php` to `/wp-content/mu-plugins/` (auto-enables use on every 
 In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
+
+= 2.7 =
+* Adds BSB to available YouVersion translations
 
 = 2.6 =
 * Fix fatal error

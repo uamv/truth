@@ -82,6 +82,7 @@ if ( ! class_exists( 'Truth' ) ) {
 						'English' => array(
 							'8' => array( 'name' => 'Amplified Bible (AMP)', 'abbr' => 'amp', 'id' => '8' ),
 							'12' => array( 'name' => 'American Standard Version', 'abbr' => 'asv', 'id' => '12' ),
+							'3034' => array( 'name' => 'Berean Study Bible', 'abbr' => 'bsb', 'id' => '3034' ),
 							'37' => array( 'name' => 'Common English Bible', 'abbr' => 'ceb', 'id' => '37' ),
 							'392' => array( 'name' => 'Contemporary English Version', 'abbr' => 'cevus06', 'id' => '392' ),
 							'42' => array( 'name' => 'Catholic Public Domain Version', 'abbr' => 'cpdv', 'id' => '42' ),
