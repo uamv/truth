@@ -42,6 +42,15 @@ if ( ! class_exists( 'Typewheel_Notice' ) ) {
 		*/
 		public $notices;
 
+        /**
+		* User.
+		*
+		* @since    1.0
+		*
+		* @var      array
+		*/
+		public $activation;
+
 		/**
 		* User.
 		*

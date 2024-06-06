@@ -71,9 +71,9 @@ if ( ! class_exists( 'Truth' ) ) {
 					)
 				),
 				'youversion' => array(
-					'URLSingleVerse'  => 'https://my.bible.com/[id]/[book].[chapter].[verse]',
-					'URLVerseRange'   => 'https://my.bible.com/[id]/[book].[chapter].[verse]-[endverse]',
-					'URLSingleChapter'=> 'https://my.bible.com/[id]/[book].[chapter]',
+					'URLSingleVerse'  => 'https://my.bible.com/bible/[id]/[book].[chapter].[verse]',
+					'URLVerseRange'   => 'https://my.bible.com/bible/[id]/[book].[chapter].[verse]-[endverse]',
+					'URLSingleChapter'=> 'https://my.bible.com/bible/[id]/[book].[chapter]',
 					'URLChapterRange' => '',
 					'bookFind'        => array( 'song_of_solomon', ' ' ),
 					'bookReplace'     => array( 'song', ''),

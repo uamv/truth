@@ -34,6 +34,7 @@ if ( ! class_exists( 'Truth_Public' ) ) {
 		private function __construct() {
 
 			$this->options = get_option( 'truth_settings' );
+            $this->options['link_in_new_tab'] = isset( $this->options['link_in_new_tab'] ) ? $this->options['link_in_new_tab'] : 0;
 
 			add_action( 'wp_footer', array( $this, 'insert_scripts' ) );
 

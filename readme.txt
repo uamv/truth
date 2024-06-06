@@ -4,7 +4,7 @@ Donate link: https://typewheel.xyz/give/
 Tags: bible, scripture, truth, verse, version, youversion, passage, christian
 Requires at least: 3.1
 Tested up to: 5.9
-Stable tag: 2.7
+Stable tag: 2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,10 @@ Yes. Upload `truth.php` to `/wp-content/mu-plugins/` (auto-enables use on every 
 In the plugin file (line 22), set `define( TRUTH_AUTH_ALL, TRUE );`
 
 == Changelog ==
+
+= 2.8 =
+* Fixes YouVersion link structure
+* Fixes various PHP undefined errors
 
 = 2.7 =
 * Adds BSB to available YouVersion translations
